@@ -10,7 +10,7 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # Stage 2: run the previously built JAR file
-FROM adoptopenjdk/openjdk13:jdk-13_33-alpine-slim
+FROM adoptopenjdk/openjdk13:alpine-slim
 
 COPY --from=builder /app/target/cloudrun-*.jar /cloudrun.jar
 
